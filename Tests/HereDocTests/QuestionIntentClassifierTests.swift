@@ -1,6 +1,5 @@
 import Foundation
 import HereDocAI
-import HereDocMCP
 import HereDocModels
 import HereDocSearch
 import HereDocStorage

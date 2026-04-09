@@ -13,11 +13,12 @@ let package = Package(
         .library(name: "HereDocStorage", targets: ["HereDocStorage"]),
         .library(name: "HereDocSearch", targets: ["HereDocSearch"]),
         .library(name: "HereDocAI", targets: ["HereDocAI"]),
-        .library(name: "HereDocMCP", targets: ["HereDocMCP"]),
     ],
     dependencies: [
-        .package(path: "refs/GRDB.swift"),
-        .package(path: "refs/mcp-swift-sdk"),
+        .package(
+            url: "https://github.com/groue/GRDB.swift",
+            revision: "36e30a6f1ef10e4194f6af0cff90888526f0c115"
+        ),
     ],
     targets: [
         .target(
@@ -43,19 +44,11 @@ let package = Package(
                 "HereDocModels",
             ]
         ),
-        .target(
-            name: "HereDocMCP",
-            dependencies: [
-                "HereDocModels",
-                .product(name: "MCP", package: "mcp-swift-sdk"),
-            ]
-        ),
         .testTarget(
             name: "HereDocTests",
             dependencies: [
                 "HereDocSearch",
                 "HereDocAI",
-                "HereDocMCP",
                 "HereDocStorage",
             ]
         ),
